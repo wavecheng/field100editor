@@ -1,0 +1,14 @@
+{
+   "id": "field-100-editor",
+   "title": "Field 100 Editor",
+   "description": "A quick editor to edit field 100 for CNMARC",
+   "author": "boch",
+   "icon": {
+      "type": "font",
+      "value": "fa fa-pencil-square-o"
+   },
+   "fullscreen": {
+      "allow": true,
+      "open": false
+   }
+}
