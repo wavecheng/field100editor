@@ -1,12 +1,121 @@
-<section>
-  <h1>
-    CNMARC 100$a Quick Editor
-  </h1>
-</section>
+<form>
+  <ng-container >
+    <mat-form-field>
+      <mat-label>Date entered on file (0-7)</mat-label>
+      <input matInput [matDatepicker]="picker" placeholder="title">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>  
+    <mat-form-field>
+      <mat-label>Type of Publication Date(8)</mat-label>
+      <mat-select placeholder="" class="mat-no-underline">
+          <mat-option value=" "></mat-option>
+          <mat-option value="a">a - currently published serial</mat-option>
+          <mat-option value="b">
+            b - serial no longer being published
+          </mat-option>
+          <mat-option value="c">c - serial of unknown status</mat-option>
+          <mat-option value="d">
+            d - monograph complete when issued, or issued within one
+            calendar year
+          </mat-option>
+          <mat-option value="e">e - reproduction of a document</mat-option>
+          <mat-option value="f">
+            f - monograph, date of publication uncertain.
+          </mat-option>
+          <mat-option value="g">
+            g - monograph whose publication continues for more than a
+            year
+          </mat-option>
+          <mat-option value="h">
+            h - monograph with both actual and copyright/privilege date
+          </mat-option>
+          <mat-option value="i">
+            i - monograph with both release/issue date and production
+            date.
+          </mat-option>
+          <mat-option value="j">
+            j - document with detailed date of publication
+          </mat-option>
+          <mat-option value="u">u - date(s) of publication unknown</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Publication Date 1 (9-12)</mat-label>
+      <input matInput >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Publication Date 2 (13-16)</mat-label>
+      <input matInput >
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Target Audience Code(17-19)</mat-label> 
+      <mat-select placeholder="" class="mat-no-underline"  mat-no-asterisk="false" multiple>
+        <mat-option value="cloth">Cloth</mat-option>
+        <mat-option value="leather">Leather</mat-option>
+        <mat-option value="chain">Chainmail</mat-option>
+        <mat-option value="plate">Plate</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Government Publication Code(20)</mat-label> 
+      <mat-select placeholder="" class="mat-no-underline"  mat-no-asterisk="false">
+        <mat-option value="cloth">Cloth</mat-option>
+        <mat-option value="leather">Leather</mat-option>
+        <mat-option value="chain">Chainmail</mat-option>
+        <mat-option value="plate">Plate</mat-option>
+      </mat-select>
+    </mat-form-field> 
+    <mat-form-field>
+      <mat-label>Modified Record Code(21)</mat-label>
+      <input matInput >
+    </mat-form-field> 
+    <mat-form-field>
+      <mat-label>Language of Cataloguing (22-24)</mat-label> 
+      <mat-select placeholder="" class="mat-no-underline"  mat-no-asterisk="false">
+        <mat-option value="cloth">Cloth</mat-option>
+        <mat-option value="leather">Leather</mat-option>
+        <mat-option value="chain">Chainmail</mat-option>
+        <mat-option value="plate">Plate</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Transliteration Code(25)</mat-label>
+        <input matInput >
+      </mat-form-field>
+    <mat-form-field>
+      <mat-label>Character Set (26-29)</mat-label> 
+      <mat-select placeholder="" class="mat-no-underline"  mat-no-asterisk="false" multiple>
+        <mat-option value="cloth">Cloth</mat-option>
+        <mat-option value="leather">Leather</mat-option>
+        <mat-option value="chain">Chainmail</mat-option>
+        <mat-option value="plate">Plate</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Character Set (30-33)</mat-label> 
+      <mat-select placeholder="" class="mat-no-underline"  mat-no-asterisk="false" multiple>
+        <mat-option value="cloth">Cloth</mat-option>
+        <mat-option value="leather">Leather</mat-option>
+        <mat-option value="chain">Chainmail</mat-option>
+        <mat-option value="plate">Plate</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Script of Title (34-35)</mat-label>
+        <mat-select placeholder="" class="mat-no-underline"  mat-no-asterisk="false">
+          <mat-option value="cloth">Cloth</mat-option>
+          <mat-option value="leather">Leather</mat-option>
+          <mat-option value="chain">Chainmail</mat-option>
+          <mat-option value="plate">Plate</mat-option>
+        </mat-select>
+      </mat-form-field>
+  </ng-container>
+</form>
+<div buttons>
+  <button mat-flat-button type="button" color="primary" >Save</button>
+</div>
 
-<section>
-
-</section>
 <div class="loading-shade" *ngIf="loading">
   <mat-spinner diameter="50"></mat-spinner>
 </div>
