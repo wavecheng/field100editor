@@ -5,6 +5,7 @@ import { finalize, switchMap, tap } from 'rxjs/operators';
 import { CloudAppEventsService, PageInfo, EntityType, CloudAppRestService, AlertService } from '@exlibris/exl-cloudapp-angular-lib';
 import { Bib, BibUtils, Field100 } from './bib-utils';
 
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -17,6 +18,7 @@ export class MainComponent implements OnInit, OnDestroy {
   bib: Bib;
   field100a: Field100;
   running = false;
+  mytest = "test";
 
   constructor(
     private appService: AppService,
@@ -48,7 +50,7 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   test() {
-    console.log(this.field100a);
+    console.log(this.mytest,this.field100a);
 /*     if (!confirm(`Add a note to ${this.bib.mms_id}?`)) return;
     this.running = true;
     this.bib = this.bibUtils.addNoteToBib(this.bib);
