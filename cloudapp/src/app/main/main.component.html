@@ -2,8 +2,8 @@
   <ng-container >
     <mat-form-field>
       <mat-label>Date entered on file (0-7)</mat-label>
-      <input matInput [matDatepicker]="picker" placeholder="title">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(value)]="field100a.record_date_0_7">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>     
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>  
     <mat-form-field>
@@ -46,7 +46,7 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Publication Date 2 (13-16)</mat-label>
-      <input matInput >
+      <input matInput [(value)]="field100a.record_date_0_7">
     </mat-form-field>
     <mat-form-field>
       <mat-label>Target Audience Code(17-19)</mat-label> 

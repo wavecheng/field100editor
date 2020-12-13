@@ -1,9 +1,9 @@
-import { Subscription } from 'rxjs';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import {
-  CloudAppRestService, CloudAppEventsService, Request, HttpMethod,
-  Entity, PageInfo, RestErrorResponse, AlertService
-} from '@exlibris/exl-cloudapp-angular-lib';
+import { AppService } from '../app.service';
+import { Subscription } from 'rxjs';
+import { finalize, switchMap, tap } from 'rxjs/operators';
+import { CloudAppEventsService, PageInfo, EntityType, CloudAppRestService, AlertService } from '@exlibris/exl-cloudapp-angular-lib';
+import { Bib, BibUtils, Field100 } from './bib-utils';
 
 @Component({
   selector: 'app-main',
@@ -13,91 +13,52 @@ import {
 export class MainComponent implements OnInit, OnDestroy {
 
   private pageLoad$: Subscription;
-  pageEntities: Entity[];
-  private _apiResult: any;
+  private bibUtils: BibUtils;
+  bib: Bib;
+  field100a: Field100;
+  running = false;
 
-  hasApiResult: boolean = false;
-  loading = false;
-
-  constructor(private restService: CloudAppRestService,
+  constructor(
+    private appService: AppService,
     private eventsService: CloudAppEventsService,
-    private alert: AlertService ) { }
+    private restService: CloudAppRestService,
+    private alert: AlertService
+  ) { }
 
   ngOnInit() {
-    this.pageLoad$ = this.eventsService.onPageLoad(this.onPageLoad);
+    this.bibUtils = new BibUtils(this.restService);
+    this.pageLoad$ = this.eventsService.onPageLoad((pageInfo: PageInfo) => {
+      console.log(pageInfo);
+      const entities = (pageInfo.entities||[]).filter(e=>[EntityType.BIB_MMS, 'IEP', 'BIB'].includes(e.type));
+      if (entities.length > 0) {
+        this.bibUtils.getBib(entities[0].id).subscribe(bib=> {
+          this.bib = (bib.record_format=='cnmarc') ? bib : null;
+          if(this.bib){
+            this.field100a = this.bibUtils.getField100a(this.bib);
+          }
+        })
+      } else {
+        this.bib = null;
+      }
+      console.log('bib', this.bib);
+    });
   }
 
   ngOnDestroy(): void {
     this.pageLoad$.unsubscribe();
   }
 
-  get apiResult() {
-    return this._apiResult;
-  }
-
-  set apiResult(result: any) {
-    this._apiResult = result;
-    this.hasApiResult = result && Object.keys(result).length > 0;
-  }
-
-  onPageLoad = (pageInfo: PageInfo) => {
-    this.pageEntities = pageInfo.entities;
-    if ((pageInfo.entities || []).length == 1) {
-      const entity = pageInfo.entities[0];
-      this.restService.call(entity.link).subscribe(result => this.apiResult = result);
-    } else {
-      this.apiResult = {};
-    }
-  }
-
-  update(value: any) {
-    this.loading = true;
-    let requestBody = this.tryParseJson(value);
-    if (!requestBody) {
-      this.loading = false;
-      return this.alert.error('Failed to parse json');
-    }
-    this.sendUpdateRequest(requestBody);
-  }
-
-  refreshPage = () => {
-    this.loading = true;
-    this.eventsService.refreshPage().subscribe({
-      next: () => this.alert.success('Success!'),
-      error: e => {
-        console.error(e);
-        this.alert.error('Failed to refresh page');
-      },
-      complete: () => this.loading = false
+  addNote() {
+    if (!confirm(`Add a note to ${this.bib.mms_id}?`)) return;
+    this.running = true;
+    this.bib = this.bibUtils.addNoteToBib(this.bib);
+    this.bibUtils.updateBib(this.bib).pipe(
+      switchMap(res => this.eventsService.refreshPage()),
+      tap(() => this.alert.success("Note added to Bib")),
+      finalize(() => this.running=false)
+    )
+    .subscribe({
+      error: e => this.alert.error(e.message)
     });
   }
-
-  private sendUpdateRequest(requestBody: any) {
-    let request: Request = {
-      url: this.pageEntities[0].link,
-      method: HttpMethod.PUT,
-      requestBody
-    };
-    this.restService.call(request).subscribe({
-      next: result => {
-        this.apiResult = result;
-        this.refreshPage();
-      },
-      error: (e: RestErrorResponse) => {
-        this.alert.error('Failed to update data');
-        console.error(e);
-        this.loading = false;
-      }
-    });
-  }
-
-  private tryParseJson(value: any) {
-    try {
-      return JSON.parse(value);
-    } catch (e) {
-      console.error(e);
-    }
-    return undefined;
-  }
-
 }
