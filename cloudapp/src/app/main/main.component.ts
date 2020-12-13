@@ -40,7 +40,6 @@ export class MainComponent implements OnInit, OnDestroy {
       } else {
         this.bib = null;
       }
-      console.log('bib', this.bib);
     });
   }
 
@@ -48,8 +47,9 @@ export class MainComponent implements OnInit, OnDestroy {
     this.pageLoad$.unsubscribe();
   }
 
-  addNote() {
-    if (!confirm(`Add a note to ${this.bib.mms_id}?`)) return;
+  test() {
+    console.log(this.field100a);
+/*     if (!confirm(`Add a note to ${this.bib.mms_id}?`)) return;
     this.running = true;
     this.bib = this.bibUtils.addNoteToBib(this.bib);
     this.bibUtils.updateBib(this.bib).pipe(
@@ -59,6 +59,6 @@ export class MainComponent implements OnInit, OnDestroy {
     )
     .subscribe({
       error: e => this.alert.error(e.message)
-    });
+    }); */
   }
 }

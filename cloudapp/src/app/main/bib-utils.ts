@@ -40,17 +40,17 @@ export class BibUtils {
 
   getField100a(bib: Bib) : Field100 {
     const doc = new DOMParser().parseFromString(bib.anies, "application/xml");
-    var _100a: Field100;
+    let _f : Field100;
     Array.from(doc.getElementsByTagName("datafield")).forEach( datafield => {
       if( "100" == datafield.getAttribute("tag")) {
         Array.from(datafield.getElementsByTagName("subfield")).forEach(subfield => {
           if("a" == subfield.getAttribute("code")){
-            _100a = this.parse100a(subfield.textContent);
+            _f = this.parse100a(subfield.textContent);          
           }
         });
       }
    });
-   return _100a ;
+   return _f;
   }
 
   private parse100a(textContent: string): Field100 {

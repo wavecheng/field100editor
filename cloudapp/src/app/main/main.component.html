@@ -1,3 +1,5 @@
+<div *ngIf="bib; else nobib">
+  <h1>{{ bib.title }} [{{ bib.mms_id }}]</h1>
 <form>
   <ng-container >
     <mat-form-field>
@@ -113,8 +115,13 @@
   </ng-container>
 </form>
 <div buttons>
-  <button mat-flat-button type="button" color="primary" >Save</button>
+  <button mat-flat-button type="button" color="primary" (click)="test()" >Save</button>
 </div>
+</div>
+<ng-template #nobib>      
+    Please navigate to a CNMARC/UNIMARC bibliographic record.
+</ng-template>
+
 
 <div class="loading-shade" *ngIf="loading">
   <mat-spinner diameter="50"></mat-spinner>
