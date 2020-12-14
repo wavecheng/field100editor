@@ -11,7 +11,7 @@ export interface Bib {
   anies: any;
 }
 
-export interface Field100 {
+export class Field100 {
   record_date_0_7: string;
   pub_type_8:string;
   pub_year1_9_12: string;

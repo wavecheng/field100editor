@@ -3,8 +3,10 @@ import { AppService } from '../app.service';
 import { Subscription } from 'rxjs';
 import { FormGroup } from '@angular/forms';
 import { finalize, switchMap, tap } from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
 import { CloudAppEventsService, PageInfo, EntityType, CloudAppRestService, FormGroupUtil, AlertService } from '@exlibris/exl-cloudapp-angular-lib';
 import { Bib, BibUtils, Field100 } from './bib-utils';
+import { marker as _ } from '@biesbjerg/ngx-translate-extract-marker';
 
 
 @Component({
@@ -21,22 +23,27 @@ export class MainComponent implements OnInit, OnDestroy {
   form: FormGroup;
   running = false;
   zip = [
-    { view: '10 - Innere Stadt', value: 'a' },
-    { view: '1010 - Innere Stadt', value: 'd' },
-    { view: '1020 - Leopoldstadt', value: 'e' },
+    { view: _('i18n.PubType.a'), value: 'a' },
+    { view: _('i18n.PubType.d'), value: 'd' },
+    { view: _('i18n.PubType.e'), value: 'e' },
 ]
 
   constructor(
     private appService: AppService,
     private eventsService: CloudAppEventsService,
     private restService: CloudAppRestService,
+    private translate: TranslateService,
     private alert: AlertService
   ) { }
 
   ngOnInit() {
     this.bibUtils = new BibUtils(this.restService);
+    this.eventsService.getInitData().subscribe(data=> {
+      console.log(this.translate.currentLang);
+      this.translate.use(data.lang);
+    });
+
     this.pageLoad$ = this.eventsService.onPageLoad((pageInfo: PageInfo) => {
-      console.log(pageInfo);
       const entities = (pageInfo.entities||[]).filter(e=>[EntityType.BIB_MMS, 'IEP', 'BIB'].includes(e.type));
       if (entities.length > 0) {
         this.bibUtils.getBib(entities[0].id).subscribe(bib=> {

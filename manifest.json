@@ -1,6 +1,15 @@
 {
    "id": "field-100-editor",
-   "title": "Field 100 Editor",
+   "title": [
+        {
+          "lang": "en",
+          "text": "CNMARC 100$a Quick Editor"
+        },
+        {
+          "lang": "zh",
+          "text": "CNMARC 100$a 快速编辑器"
+        }
+      ],
    "description": "A quick editor to edit field 100 for CNMARC",
    "author": "boch",
    "icon": {

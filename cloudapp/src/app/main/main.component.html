@@ -2,7 +2,7 @@
   <h1>{{ bib.title }} [{{ bib.mms_id }}]</h1>
 <form [formGroup]="form">
     <mat-form-field>
-      <mat-label>Date entered on file (0-7)</mat-label>
+      <mat-label translate>i18n.Title</mat-label>
       <input matInput [matDatepicker]="picker" placeholder="Choose a date" >
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>     
       <mat-datepicker #picker></mat-datepicker>
@@ -10,7 +10,7 @@
     <mat-form-field>
       <mat-label>Type of Publication Date(8)</mat-label>
       <mat-select placeholder="" class="mat-no-underline"  formControlName="pub_type_8" name="pub_type_8">
-         <mat-option *ngFor="let z of zip" [value]="z.value" >{{z.view}} 
+         <mat-option *ngFor="let z of zip" [value]="z.value" >{{z.view|translate }} 
         </mat-option>
       </mat-select>
 <!--       <mat-select placeholder="" class="mat-no-underline">
