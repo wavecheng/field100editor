@@ -1,16 +1,19 @@
 <div *ngIf="bib; else nobib">
   <h1>{{ bib.title }} [{{ bib.mms_id }}]</h1>
-<form>
-  <ng-container >
+<form [formGroup]="form">
     <mat-form-field>
       <mat-label>Date entered on file (0-7)</mat-label>
-      <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(value)]="field100a.record_date_0_7">
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date" >
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>     
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>  
     <mat-form-field>
       <mat-label>Type of Publication Date(8)</mat-label>
-      <mat-select placeholder="" class="mat-no-underline">
+      <mat-select placeholder="" class="mat-no-underline"  formControlName="pub_type_8" name="pub_type_8">
+         <mat-option *ngFor="let z of zip" [value]="z.value" >{{z.view}} 
+        </mat-option>
+      </mat-select>
+<!--       <mat-select placeholder="" class="mat-no-underline">
           <mat-option value=" "></mat-option>
           <mat-option value="a">a - currently published serial</mat-option>
           <mat-option value="b">
@@ -40,15 +43,15 @@
             j - document with detailed date of publication
           </mat-option>
           <mat-option value="u">u - date(s) of publication unknown</mat-option>
-      </mat-select>
+      </mat-select> -->
     </mat-form-field>
     <mat-form-field>
       <mat-label>Publication Date 1 (9-12)</mat-label>
-      <input matInput >
+      <input matInput formControlName="record_date_0_7" required >
     </mat-form-field>
     <mat-form-field>
       <mat-label>Publication Date 2 (13-16)</mat-label>
-      <input matInput  [(ngModel)]="field100a.record_date_0_7" name="field100a.record_date_0_7" >
+      <input matInput >
     </mat-form-field> 
     <mat-form-field>
       <mat-label>Target Audience Code(17-19)</mat-label> 
@@ -102,7 +105,7 @@
         <mat-option value="chain">Chainmail</mat-option>
         <mat-option value="plate">Plate</mat-option>
       </mat-select>
-    </mat-form-field>
+    </mat-form-field>  
     <mat-form-field>
         <mat-label>Script of Title (34-35)</mat-label>
         <mat-select placeholder="" class="mat-no-underline"  mat-no-asterisk="false">
@@ -112,7 +115,6 @@
           <mat-option value="plate">Plate</mat-option>
         </mat-select>
       </mat-form-field>
-  </ng-container>
 </form>
 <div buttons>
   <button mat-flat-button type="button" color="primary" (click)="test()" >Save</button>

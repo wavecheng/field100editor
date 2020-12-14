@@ -1,8 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, NgModule } from '@angular/core';
 import { AppService } from '../app.service';
 import { Subscription } from 'rxjs';
+import { FormGroup } from '@angular/forms';
 import { finalize, switchMap, tap } from 'rxjs/operators';
-import { CloudAppEventsService, PageInfo, EntityType, CloudAppRestService, AlertService } from '@exlibris/exl-cloudapp-angular-lib';
+import { CloudAppEventsService, PageInfo, EntityType, CloudAppRestService, FormGroupUtil, AlertService } from '@exlibris/exl-cloudapp-angular-lib';
 import { Bib, BibUtils, Field100 } from './bib-utils';
 
 
@@ -17,8 +18,13 @@ export class MainComponent implements OnInit, OnDestroy {
   private bibUtils: BibUtils;
   bib: Bib;
   field100a: Field100;
+  form: FormGroup;
   running = false;
-  mytest = "test";
+  zip = [
+    { view: '10 - Innere Stadt', value: 'a' },
+    { view: '1010 - Innere Stadt', value: 'd' },
+    { view: '1020 - Leopoldstadt', value: 'e' },
+]
 
   constructor(
     private appService: AppService,
@@ -37,6 +43,7 @@ export class MainComponent implements OnInit, OnDestroy {
           this.bib = (bib.record_format=='cnmarc') ? bib : null;
           if(this.bib){
             this.field100a = this.bibUtils.getField100a(this.bib);
+            this.form = FormGroupUtil.toFormGroup(this.field100a);
           }
         })
       } else {
@@ -50,7 +57,7 @@ export class MainComponent implements OnInit, OnDestroy {
   }
 
   test() {
-    console.log(this.mytest,this.field100a);
+    console.log(this.form.get("record_date_0_7").value, this.form.get("pub_type_8").value, this.field100a);
 /*     if (!confirm(`Add a note to ${this.bib.mms_id}?`)) return;
     this.running = true;
     this.bib = this.bibUtils.addNoteToBib(this.bib);
