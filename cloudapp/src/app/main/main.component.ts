@@ -22,11 +22,31 @@ export class MainComponent implements OnInit, OnDestroy {
   field100a: Field100;
   form: FormGroup;
   running = false;
-  zip = [
-    { view: _('i18n.PubType.a'), value: 'a' },
-    { view: _('i18n.PubType.d'), value: 'd' },
-    { view: _('i18n.PubType.e'), value: 'e' },
-]
+  pubTypeCode = [
+    { desc: '', value: ' ' },
+    { desc: _('i18n.PubTypeCode.a'), value: 'a' },
+    { desc: _('i18n.PubTypeCode.b'), value: 'b' },
+    { desc: _('i18n.PubTypeCode.c'), value: 'c' },
+    { desc: _('i18n.PubTypeCode.d'), value: 'd' },
+    { desc: _('i18n.PubTypeCode.e'), value: 'e' },
+    { desc: _('i18n.PubTypeCode.f'), value: 'f' },
+    { desc: _('i18n.PubTypeCode.g'), value: 'g' },
+    { desc: _('i18n.PubTypeCode.h'), value: 'h' },
+    { desc: _('i18n.PubTypeCode.i'), value: 'i' },
+    { desc: _('i18n.PubTypeCode.j'), value: 'j' },
+    { desc: _('i18n.PubTypeCode.u'), value: 'u' }
+  ];
+  targetAudienceCode = [
+    { desc: '', value: ' ' },
+    { desc: _('i18n.TargetAudienceCode.a'), value: 'a' },
+    { desc: _('i18n.TargetAudienceCode.b'), value: 'b' },
+    { desc: _('i18n.TargetAudienceCode.c'), value: 'c' },
+    { desc: _('i18n.TargetAudienceCode.d'), value: 'd' },
+    { desc: _('i18n.TargetAudienceCode.e'), value: 'e' },
+    { desc: _('i18n.TargetAudienceCode.k'), value: 'k' },
+    { desc: _('i18n.TargetAudienceCode.m'), value: 'm' },
+    { desc: _('i18n.TargetAudienceCode.u'), value: 'u' }
+  ]
 
   constructor(
     private appService: AppService,

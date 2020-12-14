@@ -1,8 +1,100 @@
 {
-    "Title":"CNMARC 100a Quick Editor",
-    "PubType": {
-        "a": "tet A",
-        "d": "test D",
-        "e": "test E"
+  "i18n": {
+    "Title": "CNMARC 100a Quick Editor",
+    "RecordDate0_7": "Date entered on file(0-7)",
+    "PubType8": "Type of Publication Date(8)",
+    "PubYear9_12": "Publication Year 1(9-12)",
+    "PubYear13_16": "Publication Year 2(13-16)",
+    "TargetAudience17": "Target Audience Code(17)",
+    "TargetAudience18": "Target Audience Code(18)",
+    "TargetAudience19": "Target Audience Code(19)",
+    "GovPubCode20": "Government Publication Code(20)",
+    "Modified21": "Modified Record Code(21)",
+    "CataLang22_24": "Language of Cataloguing(22-24)",
+    "TransCode25": "Transliteration Code(25)",
+    "Charset26_27": "Character Set(26-27)",
+    "Charset28_29": "Character Set(28-29)",
+    "Charset30_33": "Character Set(30-33)",
+    "ScriptTitle34_35": "Script of Title(34-35)",
+    "PubTypeCode": {
+      "a": "a - currently published serial",
+      "b": "b - serial no longer being published",
+      "c": "c - serial of unknown status",
+      "d": "d - monograph complete when issued, or issued within one calendar year",
+      "e": "e - reproduction of a document",
+      "f": "f - monograph, date of publication uncertain",
+      "g": "g - monograph whose publication continues for more than a year",
+      "h": "h - monograph with both actual and copyright/privilege date",
+      "i": "i - monograph with both release/issue date and production date",
+      "j": "j - document with detailed date of publication",
+      "u": "u - date(s) of publication unknown"
+    },
+    "TargetAudienceCode": {
+        "a":"a - juvenile, general",
+        "b":"b - pre-primary, ages 0-5",
+        "c":"c - primary, ages 5-10",
+        "d":"d - children, ages 9-14",
+        "e":"e - young adult, ages 14-20",
+        "k":"k - adult, serious",
+        "m":"m - adult, general",
+        "u":"u - unknown"
+    },
+    "GovPubCode": {
+        "a":"a - federal/national",
+        "b":"b - state/province",
+        "c":"c - county/department",
+        "d":"d - local (municipal, etc.)",
+        "e":"e - multi-local (interstate departments, etc. below the national level)",
+        "f":"f - intergovernmental",
+        "g":"g - government in exile or clandestine",
+        "h":"h - level not determined",
+        "u":"u - unknown",
+        "y":"y - not a government publication",
+        "z":"z - other government level"      
+    },
+    "ModifiedCode": {
+        "zero":"0 - unmodified record",
+        "one":"1 - unmodified record"      
+    },
+    "TransliterationCode": {
+        "a":"a - ISO transliteration scheme",
+        "b":"b - other",
+        "c":"c - multiple transliterations: ISO or other schemes",
+        "y":"y - no transliteration scheme used"
+    },
+    "ScriptCode" : {
+        "ba":"ba - Latin",
+        "ca":"ca - Cyrillic",
+        "da":"da - Japanese - script unspecified",
+        "db":"db - Japanese - kanji",
+        "dc":"dc - Japanese - kana",
+        "ea":"ea - Chinese",
+        "fa":"fa - Arabic",
+        "ga":"ga - Greek",
+        "ha":"ha - Hebrew",
+        "ia":"ia - Thai",
+        "ja":"ja - Devanagari",
+        "ka":"ka - Korean",
+        "la":"la - Tamil",
+        "ma":"ma - Georgian",
+        "mb":"mb - Armenian",
+        "zz":"zz - Other"
+    },
+    "CharacterSet":{
+        "c01":"01 - ISO 646, IRV version (basic Latin set)",
+        "c02":"02 - ISO Registration # 37 (basic Cyrillic set)",
+        "c03":"03 - ISO 5426 (extended Latin set)",
+        "c04":"04 - ISO DIS 5427 (extended Cyrillic set)",
+        "c05":"05 - ISO 5428 (Greek set)",
+        "c06":"06 - ISO 6438 (African coded character set)",
+        "c07":"07 - ISO 10586 (Georgian set)",
+        "c08":"08 - ISO 8957 (Hebrew set) Table 1",
+        "c09":"09 - ISO 8957 (Hebrew set) Table 2",
+        "c10":"10 - [Reserved]",
+        "c11":"11 - ISO 5426-2 (Latin characters used in minor European languages and obsolete typography)",
+        "c20":"20 - 信息交换用汉字编码字符集基本集(双八位，基本、辅3、辅5集为一个集合)",
+        "c21":"21 - 信息交换用汉字编码字符集基本集(双八位，辅1、辅3、辅5集为一个集合)",
+        "c50":"50 - ISO 10646 Level 3 (Unicode)"
     }
+  }
 }

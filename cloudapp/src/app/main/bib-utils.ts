@@ -16,7 +16,9 @@ export class Field100 {
   pub_type_8:string;
   pub_year1_9_12: string;
   pub_year2_13_16: string;
-  reader_17_19: string;
+  reader_17: string;
+  reader_18: string;
+  reader_19: string;
   gov_code_20: string;
   modified_21: string;
   cata_lang_22_24: string;
@@ -59,7 +61,9 @@ export class BibUtils {
       pub_type_8 :textContent.substr(8,1),
       pub_year1_9_12 :textContent.substr(9,4),
       pub_year2_13_16 :textContent.substr(13,4),
-      reader_17_19 :textContent.substr(17,3),
+      reader_17:textContent.substr(17,1),
+      reader_18:textContent.substr(18,1),
+      reader_19:textContent.substr(19,1),
       gov_code_20 :textContent.substr(20,1),
       modified_21 :textContent.substr(21,1),
       cata_lang_22_24 :textContent.substr(22,3),
