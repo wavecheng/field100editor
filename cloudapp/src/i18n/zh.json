@@ -1,6 +1,8 @@
 {
   "i18n": {
     "Title": "CNMARC 100a 快速编辑器",
+    "Save": "保存",
+    "NoBibTip":"请导航到一条CNMARC/UNIMARC记录!",
     "RecordDate0_7":"记录生成时间(0-7)",
     "PubType8":"出版时间类型(8)",
     "PubYear9_12":"出版年1(9-12)",
@@ -14,7 +16,7 @@
     "TransCode25":"音译代码(25)",
     "Charset26_27":"字符集(26-27)",
     "Charset28_29":"字符集(28-29)",
-    "Charset30_33":"字符集(30-33)",
+    "Charset30_33":"补充字符集(30-33)",
     "ScriptTitle34_35":"题名语系代码(34-35)",
     "PubTypeCode": {
         "a": "a - 现期出版的连续出版物",

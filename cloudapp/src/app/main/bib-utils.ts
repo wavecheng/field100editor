@@ -23,7 +23,8 @@ export class Field100 {
   modified_21: string;
   cata_lang_22_24: string;
   tran_code_25:string;
-  charset_26_29:string;
+  charset_26_27:string;
+  charset_28_29:string;
   supp_charset_30_33:string;
   title_lang_34_35:string;
 }
@@ -68,7 +69,8 @@ export class BibUtils {
       modified_21 :textContent.substr(21,1),
       cata_lang_22_24 :textContent.substr(22,3),
       tran_code_25 :textContent.substr(25,1),
-      charset_26_29 :textContent.substr(26,4),
+      charset_26_27 :textContent.substr(26,2),
+      charset_28_29 :textContent.substr(28,2),
       supp_charset_30_33 :textContent.substr(30,4),
       title_lang_34_35: textContent.substr(34,2)
     };

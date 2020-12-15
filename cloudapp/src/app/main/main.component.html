@@ -1,109 +1,102 @@
 <div *ngIf="bib; else nobib">
   <h1>{{ bib.title }} [{{ bib.mms_id }}]</h1>
-<form [formGroup]="form">
-    <mat-form-field>
-      <mat-label translate>i18n.RecordDate0_7</mat-label>
-      <input matInput formControlName="record_date_0_7" required minlength="8" maxlength="8" pattern="\d{8}">
-    </mat-form-field>  
-    <mat-form-field>
-      <mat-label translate>i18n.PubType8</mat-label>
-      <mat-select placeholder="" class="mat-no-underline"  formControlName="pub_type_8" name="pub_type_8" >
-         <mat-option *ngFor="let z of pubTypeCode" [value]="z.value" >{{z.desc |translate }}  
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label translate>i18n.PubYear9_12</mat-label>
-      <input matInput formControlName="pub_year1_9_12" minlength="4" maxlength="4" >
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label translate>i18n.PubYear13_16</mat-label>
-      <input matInput formControlName="pub_year2_13_16" minlength="4" maxlength="4" >
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label translate>i18n.TargetAudience17</mat-label> 
-      <mat-select placeholder="" class="mat-no-underline"  formControlName="reader_17" name="reader_17" >
-        <mat-option *ngFor="let z of targetAudienceCode" [value]="z.value" > {{z.desc |translate }}  
-       </mat-option>
-     </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label translate>i18n.TargetAudience18</mat-label> 
-      <mat-select placeholder="" class="mat-no-underline"  formControlName="reader_18" name="reader_18" >
-        <mat-option *ngFor="let z of targetAudienceCode" [value]="z.value" > {{z.desc|translate }}  
-       </mat-option>
-     </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label translate>i18n.TargetAudience19</mat-label> 
-      <mat-select placeholder="" class="mat-no-underline"  formControlName="reader_19" name="reader_19" >
-        <mat-option *ngFor="let z of targetAudienceCode" [value]="z.value" > {{z.desc |translate }}  
-       </mat-option>
-     </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Government Publication Code(20)</mat-label> 
-      <mat-select placeholder="" class="mat-no-underline"  mat-no-asterisk="false">
-        <mat-option value="cloth">Cloth</mat-option>
-        <mat-option value="leather">Leather</mat-option>
-        <mat-option value="chain">Chainmail</mat-option>
-        <mat-option value="plate">Plate</mat-option>
-      </mat-select>
-    </mat-form-field> 
-    <mat-form-field>
-      <mat-label>Modified Record Code(21)</mat-label>
-      <input matInput >
-    </mat-form-field> 
-    <mat-form-field>
-      <mat-label>Language of Cataloguing (22-24)</mat-label> 
-      <mat-select placeholder="" class="mat-no-underline"  mat-no-asterisk="false">
-        <mat-option value="cloth">Cloth</mat-option>
-        <mat-option value="leather">Leather</mat-option>
-        <mat-option value="chain">Chainmail</mat-option>
-        <mat-option value="plate">Plate</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Transliteration Code(25)</mat-label>
-        <input matInput >
-      </mat-form-field>
-    <mat-form-field>
-      <mat-label>Character Set (26-29)</mat-label> 
-      <mat-select placeholder="" class="mat-no-underline"  mat-no-asterisk="false" multiple>
-        <mat-option value="cloth">Cloth</mat-option>
-        <mat-option value="leather">Leather</mat-option>
-        <mat-option value="chain">Chainmail</mat-option>
-        <mat-option value="plate">Plate</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Character Set (30-33)</mat-label> 
-      <mat-select placeholder="" class="mat-no-underline"  mat-no-asterisk="false" multiple>
-        <mat-option value="cloth">Cloth</mat-option>
-        <mat-option value="leather">Leather</mat-option>
-        <mat-option value="chain">Chainmail</mat-option>
-        <mat-option value="plate">Plate</mat-option>
-      </mat-select>
-    </mat-form-field>  
-    <mat-form-field>
-        <mat-label>Script of Title (34-35)</mat-label>
-        <mat-select placeholder="" class="mat-no-underline"  mat-no-asterisk="false">
-          <mat-option value="cloth">Cloth</mat-option>
-          <mat-option value="leather">Leather</mat-option>
-          <mat-option value="chain">Chainmail</mat-option>
-          <mat-option value="plate">Plate</mat-option>
+  <form [formGroup]="form">
+      <mat-form-field>
+        <mat-label translate>i18n.RecordDate0_7</mat-label>
+        <input matInput formControlName="record_date_0_7" required minlength="8" maxlength="8" pattern="\d{8}">
+      </mat-form-field>  
+      <mat-form-field>
+        <mat-label translate>i18n.PubType8</mat-label>
+        <mat-select placeholder="" class="mat-no-underline"  formControlName="pub_type_8" name="pub_type_8" >
+          <mat-option *ngFor="let z of pubTypeCode" [value]="z.value" >{{z.desc |translate }}  
+          </mat-option>
         </mat-select>
       </mat-form-field>
-</form>
-<div buttons>
-  <button mat-flat-button type="button" color="primary" (click)="test()" >Save</button>
-</div>
+      <mat-form-field>
+        <mat-label translate>i18n.PubYear9_12</mat-label>
+        <input matInput formControlName="pub_year1_9_12" minlength="4" maxlength="4" >
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label translate>i18n.PubYear13_16</mat-label>
+        <input matInput formControlName="pub_year2_13_16" minlength="4" maxlength="4" >
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label translate>i18n.TargetAudience17</mat-label> 
+        <mat-select placeholder="" class="mat-no-underline"  formControlName="reader_17" name="reader_17" >
+          <mat-option *ngFor="let z of targetAudienceCode" [value]="z.value" > {{z.desc |translate }}  
+        </mat-option>
+      </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label translate>i18n.TargetAudience18</mat-label> 
+        <mat-select placeholder="" class="mat-no-underline"  formControlName="reader_18" name="reader_18" >
+          <mat-option *ngFor="let z of targetAudienceCode" [value]="z.value" > {{z.desc|translate }}  
+        </mat-option>
+      </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label translate>i18n.TargetAudience19</mat-label> 
+        <mat-select placeholder="" class="mat-no-underline"  formControlName="reader_19" name="reader_19" >
+          <mat-option *ngFor="let z of targetAudienceCode" [value]="z.value" > {{z.desc |translate }}  
+        </mat-option>
+      </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label translate>i18n.GovPubCode20</mat-label> 
+        <mat-select placeholder="" class="mat-no-underline"  formControlName="gov_code_20" name="gov_code_20" >
+          <mat-option *ngFor="let z of GovPubCode" [value]="z.value" > {{z.desc |translate }}  
+        </mat-option>
+      </mat-select>
+      </mat-form-field> 
+      <mat-form-field>
+        <mat-label translate>i18n.Modified21</mat-label>
+        <mat-select placeholder="" class="mat-no-underline"  formControlName="modified_21" name="modified_21" >
+          <mat-option *ngFor="let z of ModifiedCode" [value]="z.value" > {{z.desc |translate }}  
+        </mat-option>
+      </mat-select>
+      </mat-form-field> 
+      <mat-form-field>
+        <mat-label translate>i18n.CataLang22_24</mat-label> 
+        <input matInput formControlName="cata_lang_22_24" minlength="3" maxlength="3" required>
+      </mat-form-field>
+      <mat-form-field>
+          <mat-label translate>i18n.TransCode25</mat-label>
+          <mat-select placeholder="" class="mat-no-underline"  formControlName="tran_code_25" name="tran_code_25" >
+            <mat-option *ngFor="let z of TransliterationCode" [value]="z.value" > {{z.desc |translate }}  
+          </mat-option>
+        </mat-select>
+        </mat-form-field>
+      <mat-form-field>
+        <mat-label translate>i18n.Charset26_27</mat-label> 
+        <mat-select placeholder="" class="mat-no-underline"  formControlName="charset_26_27" name="charset_26_27" >
+          <mat-option *ngFor="let z of CharacterSet" [value]="z.value" > {{z.desc |translate }}  
+        </mat-option>
+      </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label translate>i18n.Charset28_29</mat-label> 
+        <mat-select placeholder="" class="mat-no-underline"  formControlName="charset_28_29" name="charset_28_29" >
+          <mat-option *ngFor="let z of CharacterSet" [value]="z.value" > {{z.desc |translate }}  
+        </mat-option>
+      </mat-select>
+      </mat-form-field>  
+      <mat-form-field>
+        <mat-label translate>i18n.Charset30_33</mat-label> 
+        <input matInput formControlName="supp_charset_30_33" maxlength="4">
+      </mat-form-field>  
+      <mat-form-field>
+          <mat-label translate>i18n.ScriptTitle34_35</mat-label>
+          <mat-select placeholder="" class="mat-no-underline"  formControlName="title_lang_34_35" name="title_lang_34_35" >
+            <mat-option *ngFor="let z of ScriptCode" [value]="z.value" > {{z.desc |translate }}  
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <span class="margin"><button mat-flat-button type="button" color="primary" (click)="test()">{{'i18n.Save'|translate}}</button></span>
+  </form>
 </div>
 <ng-template #nobib>      
-    Please navigate to a CNMARC/UNIMARC bibliographic record.
+  <h1 class="tip" translate>i18n.NoBibTip</h1>
 </ng-template>
-
-
 <div class="loading-shade" *ngIf="loading">
   <mat-spinner diameter="50"></mat-spinner>
 </div>
