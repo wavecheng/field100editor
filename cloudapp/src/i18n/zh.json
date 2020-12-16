@@ -1,6 +1,8 @@
 {
   "i18n": {
     "Title": "CNMARC 100a 快速编辑器",
+    "UpdateConfirm": "确认更新 ({{title}}[{{mmid}}]) 100$a字段的内容?", 
+    "UpdateSuccess": "更新成功!",
     "Save": "保存",
     "NoBibTip":"请导航到一条CNMARC/UNIMARC记录!",
     "RecordDate0_7":"记录生成时间(0-7)",

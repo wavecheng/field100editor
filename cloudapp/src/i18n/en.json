@@ -2,7 +2,10 @@
   "i18n": {
     "Title": "CNMARC 100a Quick Editor",
     "Save": "Save",
+    "UpdateConfirm": "Update field 100$a value for {{title}}[{{mmid}}]?", 
+    "UpdateSuccess": "Field 100$a value updated!",
     "NoBibTip":"Please navigate to a CNMARC/UNIMARC bibliographic record.",
+
     "RecordDate0_7": "Date entered on file(0-7)",
     "PubType8": "Type of Publication Date(8)",
     "PubYear9_12": "Publication Year 1(9-12)",

@@ -125,7 +125,6 @@ export class MainComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.bibUtils = new BibUtils(this.restService);
     this.eventsService.getInitData().subscribe(data=> {
-      console.log(this.translate.currentLang);
       this.translate.use(data.lang);
     });
 
@@ -133,7 +132,7 @@ export class MainComponent implements OnInit, OnDestroy {
       const entities = (pageInfo.entities||[]).filter(e=>[EntityType.BIB_MMS, 'IEP', 'BIB'].includes(e.type));
       if (entities.length > 0) {
         this.bibUtils.getBib(entities[0].id).subscribe(bib=> {
-          this.bib = (bib.record_format=='cnmarc') ? bib : null;
+          this.bib = (bib.record_format=='cnmarc' || bib.record_format == 'unimarc') ? bib : null;
           if(this.bib){
             this.field100a = this.bibUtils.getField100a(this.bib);
             this.form = FormGroupUtil.toFormGroup(this.field100a);
@@ -149,18 +148,33 @@ export class MainComponent implements OnInit, OnDestroy {
     this.pageLoad$.unsubscribe();
   }
 
-  test() {
-    console.log(this.form.get("record_date_0_7").value, this.form.get("pub_type_8").value, this.field100a);
-/*     if (!confirm(`Add a note to ${this.bib.mms_id}?`)) return;
+  updateField100() {
+    this.field100a.record_date_0_7 = this.form.get("record_date_0_7").value;
+    this.field100a.pub_type_8 = this.form.get("pub_type_8").value;
+    this.field100a.pub_year1_9_12 = this.form.get("pub_year1_9_12").value;
+    this.field100a.pub_year2_13_16 = this.form.get("pub_year2_13_16").value;
+    this.field100a.reader_17 = this.form.get("reader_17").value;
+    this.field100a.reader_18 = this.form.get("reader_18").value;
+    this.field100a.reader_19 = this.form.get("reader_19").value;
+    this.field100a.gov_code_20 = this.form.get("gov_code_20").value;
+    this.field100a.modified_21 = this.form.get("modified_21").value;
+    this.field100a.cata_lang_22_24 = this.form.get("cata_lang_22_24").value;
+    this.field100a.tran_code_25 = this.form.get("tran_code_25").value;
+    this.field100a.charset_26_27 = this.form.get("charset_26_27").value;
+    this.field100a.charset_28_29 = this.form.get("charset_28_29").value;
+    this.field100a.supp_charset_30_33 = this.form.get("supp_charset_30_33").value;
+    this.field100a.title_lang_34_35 = this.form.get("title_lang_34_35").value;
+
+    if (!confirm(this.translate.instant('i18n.UpdateConfirm',{title:this.bib.title, mmid: this.bib.mms_id }))) return;
     this.running = true;
-    this.bib = this.bibUtils.addNoteToBib(this.bib);
+    this.bib = this.bibUtils.updateBibField100aContent(this.bib, this.field100a.toString());
     this.bibUtils.updateBib(this.bib).pipe(
       switchMap(res => this.eventsService.refreshPage()),
-      tap(() => this.alert.success("Note added to Bib")),
+      tap(() => this.alert.success(this.translate.instant('i18n.UpdateSuccess'))),
       finalize(() => this.running=false)
     )
     .subscribe({
       error: e => this.alert.error(e.message)
-    }); */
+    });
   }
 }

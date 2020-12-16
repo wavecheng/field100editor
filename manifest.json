@@ -19,5 +19,12 @@
    "fullscreen": {
       "allow": true,
       "open": false
+   },
+   "contentSecurity": {
+      "connectSrc": [],
+      "sandbox": {
+         "popups": true,
+         "modals": true
+      }
    }
 }
