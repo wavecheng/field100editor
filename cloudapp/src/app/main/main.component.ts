@@ -22,6 +22,7 @@ export class MainComponent implements OnInit, OnDestroy {
   field100a: Field100;
   form: FormGroup;
   running = false;
+  formChanged = false;
 
   pubTypeCode = [
     { desc: '', value: ' ' },
@@ -134,12 +135,15 @@ export class MainComponent implements OnInit, OnDestroy {
         this.bibUtils.getBib(entities[0].id).subscribe(bib=> {
           this.bib = (bib.record_format=='cnmarc' || bib.record_format == 'unimarc') ? bib : null;
           if(this.bib){
+            this.formChanged = false;
             this.field100a = this.bibUtils.getField100a(this.bib);
             this.form = FormGroupUtil.toFormGroup(this.field100a);
+            this.form.valueChanges.subscribe(data => this.formChanged = true);
           }
         })
       } else {
         this.bib = null;
+        this.form = null;       
       }
     });
   }

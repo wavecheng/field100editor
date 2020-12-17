@@ -1,5 +1,5 @@
 <div *ngIf="bib; else nobib">
-  <h1>{{ bib.title }} [{{ bib.mms_id }}]</h1>
+  <span class="bold">{{ bib.title }} [{{ bib.mms_id }}]</span>
   <form [formGroup]="form">
       <mat-form-field>
         <mat-label translate>i18n.RecordDate0_7</mat-label>
@@ -91,7 +91,7 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <span class="margin"><button mat-flat-button type="button" color="primary" (click)="updateField100()">{{'i18n.Save'|translate}}</button></span>
+      <span class="margin"><button mat-flat-button type="button" color="primary" (click)="updateField100()" [disabled]="!formChanged">{{'i18n.Save'|translate}}</button></span>
   </form>
 </div>
 <ng-template #nobib>      
