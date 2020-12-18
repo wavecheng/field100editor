@@ -97,8 +97,8 @@
         "c09":"09 - ISO 8957 (Hebrew set) Table 2",
         "c10":"10 - [Reserved]",
         "c11":"11 - ISO 5426-2 (Latin characters used in minor European languages and obsolete typography)",
-        "c20":"20 - 信息交换用汉字编码字符集基本集(双八位，基本、辅3、辅5集为一个集合)",
-        "c21":"21 - 信息交换用汉字编码字符集基本集(双八位，辅1、辅3、辅5集为一个集合)",
+        "c20":"20 - Chinese ideograms coded character set for information interchange(双八位，基本、辅3、辅5集为一个集合)",
+        "c21":"21 - Chinese ideograms coded character set for information interchange(双八位，辅1、辅3、辅5集为一个集合)",
         "c50":"50 - ISO 10646 Level 3 (Unicode)"
     }
   }
