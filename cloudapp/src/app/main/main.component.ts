@@ -79,20 +79,20 @@ export class MainComponent implements OnInit, OnDestroy {
 
   CharacterSet = [
     { desc: '', value: ' ' },
-    { desc: _('i18n.CharacterSet.c01'), value: '01' },
-    { desc: _('i18n.CharacterSet.c02'), value: '02' },
-    { desc: _('i18n.CharacterSet.c03'), value: '03' },
-    { desc: _('i18n.CharacterSet.c04'), value: '04' },
-    { desc: _('i18n.CharacterSet.c05'), value: '05' },
-    { desc: _('i18n.CharacterSet.c06'), value: '06' },
-    { desc: _('i18n.CharacterSet.c07'), value: '07' },
-    { desc: _('i18n.CharacterSet.c08'), value: '08' },
-    { desc: _('i18n.CharacterSet.c09'), value: '09' },
-    { desc: _('i18n.CharacterSet.c10'), value: '10' },
-    { desc: _('i18n.CharacterSet.c11'), value: '11' },
+    { desc: _('i18n.CharacterSet.c50'), value: '50' },
+    { desc: _('i18n.CharacterSet.c21'), value: '21' },  
     { desc: _('i18n.CharacterSet.c20'), value: '20' },
-    { desc: _('i18n.CharacterSet.c21'), value: '21' },
-    { desc: _('i18n.CharacterSet.c50'), value: '50' }      
+    { desc: _('i18n.CharacterSet.c11'), value: '11' },
+    { desc: _('i18n.CharacterSet.c10'), value: '10' },
+    { desc: _('i18n.CharacterSet.c09'), value: '09' },
+    { desc: _('i18n.CharacterSet.c08'), value: '08' },
+    { desc: _('i18n.CharacterSet.c07'), value: '07' },
+    { desc: _('i18n.CharacterSet.c06'), value: '06' },
+    { desc: _('i18n.CharacterSet.c05'), value: '05' },
+    { desc: _('i18n.CharacterSet.c04'), value: '04' },
+    { desc: _('i18n.CharacterSet.c03'), value: '03' },
+    { desc: _('i18n.CharacterSet.c02'), value: '02' },
+    { desc: _('i18n.CharacterSet.c01'), value: '01' }
   ];
 
   ScriptCode = [

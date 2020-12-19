@@ -1,5 +1,5 @@
 <div *ngIf="bib; else nobib">
-  <span class="bold">{{ bib.title }} [{{ bib.mms_id }}]</span>
+  <h1 class="bold">{{ bib.title }} [{{ bib.mms_id }}]</h1>
   <form [formGroup]="form">
       <mat-form-field>
         <mat-label translate>i18n.RecordDate0_7</mat-label>
@@ -8,7 +8,7 @@
       <mat-form-field>
         <mat-label translate>i18n.PubType8</mat-label>
         <mat-select placeholder="" class="mat-no-underline" disableOptionCentering formControlName="pub_type_8" name="pub_type_8" >
-          <mat-option *ngFor="let z of pubTypeCode" [value]="z.value" >{{z.desc |translate }}  
+          <mat-option *ngFor="let z of pubTypeCode" [value]="z.value" [title]="z.desc|translate">{{z.desc |translate }}  
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -23,35 +23,35 @@
       <mat-form-field>
         <mat-label translate>i18n.TargetAudience17</mat-label> 
         <mat-select placeholder="" class="mat-no-underline" disableOptionCentering formControlName="reader_17" name="reader_17" >
-          <mat-option *ngFor="let z of targetAudienceCode" [value]="z.value" > {{z.desc |translate }}  
+          <mat-option *ngFor="let z of targetAudienceCode" [value]="z.value" [title]="z.desc|translate"> {{z.desc |translate }}  
         </mat-option>
       </mat-select>
       </mat-form-field>
       <mat-form-field>
         <mat-label translate>i18n.TargetAudience18</mat-label> 
         <mat-select placeholder="" class="mat-no-underline" disableOptionCentering formControlName="reader_18" name="reader_18" >
-          <mat-option *ngFor="let z of targetAudienceCode" [value]="z.value" > {{z.desc|translate }}  
+          <mat-option *ngFor="let z of targetAudienceCode" [value]="z.value" [title]="z.desc|translate"> {{z.desc|translate }}  
         </mat-option>
       </mat-select>
       </mat-form-field>
       <mat-form-field>
         <mat-label translate>i18n.TargetAudience19</mat-label> 
         <mat-select placeholder="" class="mat-no-underline" disableOptionCentering formControlName="reader_19" name="reader_19" >
-          <mat-option *ngFor="let z of targetAudienceCode" [value]="z.value" > {{z.desc |translate }}  
+          <mat-option *ngFor="let z of targetAudienceCode" [value]="z.value" [title]="z.desc|translate"> {{z.desc |translate }}  
         </mat-option>
       </mat-select>
       </mat-form-field>
       <mat-form-field>
         <mat-label translate>i18n.GovPubCode20</mat-label> 
         <mat-select placeholder="" class="mat-no-underline" disableOptionCentering formControlName="gov_code_20" name="gov_code_20" >
-          <mat-option *ngFor="let z of GovPubCode" [value]="z.value" > {{z.desc |translate }}  
+          <mat-option *ngFor="let z of GovPubCode" [value]="z.value" [title]="z.desc|translate"> {{z.desc |translate }}  
         </mat-option>
       </mat-select>
       </mat-form-field> 
       <mat-form-field>
         <mat-label translate>i18n.Modified21</mat-label>
         <mat-select placeholder="" class="mat-no-underline" disableOptionCentering formControlName="modified_21" name="modified_21" >
-          <mat-option *ngFor="let z of ModifiedCode" [value]="z.value" > {{z.desc |translate }}  
+          <mat-option *ngFor="let z of ModifiedCode" [value]="z.value" [title]="z.desc|translate"> {{z.desc |translate }}  
         </mat-option>
       </mat-select>
       </mat-form-field> 
@@ -62,21 +62,21 @@
       <mat-form-field>
           <mat-label translate>i18n.TransCode25</mat-label>
           <mat-select placeholder="" class="mat-no-underline" disableOptionCentering formControlName="tran_code_25" name="tran_code_25" >
-            <mat-option *ngFor="let z of TransliterationCode" [value]="z.value" > {{z.desc |translate }}  
+            <mat-option *ngFor="let z of TransliterationCode" [value]="z.value" [title]="z.desc|translate"> {{z.desc |translate }}  
           </mat-option>
         </mat-select>
         </mat-form-field>
       <mat-form-field>
         <mat-label translate>i18n.Charset26_27</mat-label> 
         <mat-select placeholder="" class="mat-no-underline" disableOptionCentering formControlName="charset_26_27" name="charset_26_27" >
-          <mat-option *ngFor="let z of CharacterSet" [value]="z.value" > {{z.desc |translate }}  
+          <mat-option *ngFor="let z of CharacterSet" [value]="z.value" [title]="z.desc|translate"> {{z.desc |translate }}  
         </mat-option>
       </mat-select>
       </mat-form-field>
       <mat-form-field>
         <mat-label translate>i18n.Charset28_29</mat-label> 
         <mat-select placeholder="" class="mat-no-underline" disableOptionCentering formControlName="charset_28_29" name="charset_28_29" >
-          <mat-option *ngFor="let z of CharacterSet" [value]="z.value" > {{z.desc |translate }}  
+          <mat-option *ngFor="let z of CharacterSet" [value]="z.value" [title]="z.desc|translate"> {{z.desc |translate }}  
         </mat-option>
       </mat-select>
       </mat-form-field>  
@@ -87,7 +87,7 @@
       <mat-form-field>
           <mat-label translate>i18n.ScriptTitle34_35</mat-label>
           <mat-select placeholder="" class="mat-no-underline"  disableOptionCentering formControlName="title_lang_34_35" name="title_lang_34_35" >
-            <mat-option *ngFor="let z of ScriptCode" [value]="z.value" > {{z.desc |translate }}  
+            <mat-option *ngFor="let z of ScriptCode" [value]="z.value" [title]="z.desc|translate"> {{z.desc |translate }}  
           </mat-option>
         </mat-select>
       </mat-form-field>
